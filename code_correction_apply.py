@@ -17,11 +17,11 @@ def apply_code_correction(apply_code:bool , corrections: str) :
         try :
             with open(buggy_script_path,"w") as f :
                 f.write(corrected_code)
-            print("Code successfully updated")
+            print("Code est mis à jour avec succées")
         except Exception as e :
             print (f"ERROR while modifying script : {e}")
         
     else :
-        print(f"Couldn't modify code : {correction_resume}")
+        print(f"Couldn't modify : {correction_resume}")
         
 

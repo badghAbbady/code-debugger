@@ -18,7 +18,6 @@ def get_correction_from_groq(code_source: str, error_trace: str, target_script_n
     with open ('context.txt' , 'r') as f :
         system_prompt = f.read()
     
-    # Le User Prompt fournit toutes les données nécessaires à l'analyse
     user_prompt = f"""
     Analysez la trace d'erreur suivante et le code Python.
     
@@ -36,7 +35,6 @@ def get_correction_from_groq(code_source: str, error_trace: str, target_script_n
     Assurez-vous que la clé 'file_path' est : {target_script_name}
     """
 
-    # 3. Appel API
     try:
         chat_completion = client.chat.completions.create(
             messages=[
@@ -49,8 +47,7 @@ def get_correction_from_groq(code_source: str, error_trace: str, target_script_n
         )
     
         
-        json_text = json.loads(chat_completion.choices[0].message.content)
-        print("--> Response recieved from groq")
+        json_text = chat_completion.choices[0].message.content
         return json_text
         
     except Exception as e:
