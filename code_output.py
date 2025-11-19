@@ -1,6 +1,5 @@
-# code_executor.py
 
-import virtual_env as vem # On importe le script précédent
+import virtual_env as vem 
 import subprocess
 import os
 
@@ -21,7 +20,7 @@ def run_target_script(python_path: str, script_path: str):
         )
 
         if process.returncode != 0:
-            print("--> Error Captured : Error code :", process.returncode)
+            print("--> Error Captured. Error code :", process.returncode)
             return {
                 "success": False,
                 "stdout": process.stdout,
