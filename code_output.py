@@ -7,10 +7,10 @@ VENV_DIR = ".target_venv"
 REQUIREMENTS_PATH = "requirements.txt" 
 TARGET_SCRIPT = "buggy_script.py"
 
-def run_target_script(python_path: str, script_path: str):
+def run_target_script(script_path: str):
 
     try:
-        command = [python_path, script_path]
+        command = ["python",script_path]
         
         process = subprocess.run(
             command,
